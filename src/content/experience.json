@@ -1,0 +1,60 @@
+[
+  {
+    "id": "lead-ds",
+    "role": "Lead Data Scientist",
+    "company": "Acme Analytics Inc.",
+    "location": "San Francisco, CA",
+    "start": "2020-06",
+    "end": null,
+    "current": true,
+    "bullets": [
+      "Lead a team of 4 data scientists building ML products across marketing, operations, and finance.",
+      "Architected the company-wide feature store and ML platform, reducing model deployment time from weeks to days.",
+      "Delivered a churn prediction model that directly contributed to an 18% reduction in annual churn.",
+      "Established experimentation standards and A/B testing infrastructure adopted across 3 product teams."
+    ]
+  },
+  {
+    "id": "senior-ds",
+    "role": "Senior Data Scientist",
+    "company": "DataDriven Co.",
+    "location": "New York, NY",
+    "start": "2016-03",
+    "end": "2020-05",
+    "current": false,
+    "bullets": [
+      "Built NLP pipeline processing 50K+ documents/day with 94% classification accuracy.",
+      "Developed demand forecasting models reducing inventory costs by $4M annually.",
+      "Mentored 3 junior data scientists and drove adoption of reproducible research practices.",
+      "Presented quarterly insights to C-suite stakeholders; translated complex analyses into actionable strategy."
+    ]
+  },
+  {
+    "id": "ds",
+    "role": "Data Scientist",
+    "company": "InsightLab",
+    "location": "Boston, MA",
+    "start": "2013-09",
+    "end": "2016-02",
+    "current": false,
+    "bullets": [
+      "Built predictive models for client campaigns across retail and financial services verticals.",
+      "Implemented automated reporting pipelines saving 20+ analyst-hours per week.",
+      "Led migration from SAS to Python/R, standardizing the analytics codebase."
+    ]
+  },
+  {
+    "id": "analyst",
+    "role": "Data Analyst",
+    "company": "StartupXYZ",
+    "location": "Cambridge, MA",
+    "start": "2011-07",
+    "end": "2013-08",
+    "current": false,
+    "bullets": [
+      "Owned end-to-end analytics for growth and product teams using SQL and Excel.",
+      "Designed and analyzed A/B tests to optimize onboarding flow, improving D7 retention by 12%.",
+      "Built the company's first KPI dashboard, consolidating metrics from 5 data sources."
+    ]
+  }
+]

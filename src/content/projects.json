@@ -1,0 +1,42 @@
+[
+  {
+    "id": "churn-prediction",
+    "title": "Customer Churn Prediction Platform",
+    "description": "End-to-end ML pipeline predicting customer churn for a SaaS company with 2M+ users. Reduced churn by 18% through targeted interventions driven by model scores. Includes feature engineering, model selection, and a real-time scoring API.",
+    "longDescription": "Built a production-grade churn prediction system using gradient boosting (XGBoost/LightGBM) with a custom feature store. Implemented SHAP-based explainability to make model decisions interpretable for the business team. Deployed via FastAPI with MLflow tracking and automated retraining pipelines.",
+    "tools": ["Python", "XGBoost", "LightGBM", "SHAP", "FastAPI", "MLflow", "PostgreSQL", "Docker"],
+    "github": "https://github.com/hon-luu/churn-prediction",
+    "demo": null,
+    "featured": true
+  },
+  {
+    "id": "nlp-pipeline",
+    "title": "NLP Document Intelligence Pipeline",
+    "description": "Automated document classification and entity extraction system processing 50K+ legal and financial documents per day. Achieved 94% classification accuracy and cut manual review time by 70%.",
+    "longDescription": "Developed a multi-stage NLP pipeline combining transformer-based models (fine-tuned BERT/RoBERTa) with rule-based post-processing. Built active learning loop to continuously improve model performance with minimal labeling effort.",
+    "tools": ["Python", "HuggingFace Transformers", "spaCy", "PyTorch", "Apache Airflow", "Elasticsearch", "AWS S3"],
+    "github": "https://github.com/hon-luu/nlp-document-pipeline",
+    "demo": null,
+    "featured": true
+  },
+  {
+    "id": "forecast-dashboard",
+    "title": "Demand Forecasting & Analytics Dashboard",
+    "description": "Time-series forecasting system for retail inventory optimization across 500+ SKUs and 30 locations. Reduced overstock by 22% and stockouts by 31% over a 12-month deployment.",
+    "longDescription": "Ensemble of statistical (SARIMA, Prophet) and ML models (gradient boosting on lag features) with automated model selection per SKU. Interactive Streamlit dashboard for business stakeholders to explore forecasts, actuals, and key drivers.",
+    "tools": ["Python", "Prophet", "statsmodels", "Streamlit", "Pandas", "SQL", "BigQuery", "Plotly"],
+    "github": "https://github.com/hon-luu/demand-forecasting",
+    "demo": null,
+    "featured": true
+  },
+  {
+    "id": "ab-testing-framework",
+    "title": "A/B Testing & Experimentation Framework",
+    "description": "Internal experimentation platform used by 3 product teams to run statistically rigorous A/B tests. Supports sequential testing, multi-armed bandits, and automated power analysis.",
+    "longDescription": "Designed a self-service framework wrapping a Bayesian A/B testing engine with frequentist fallbacks. Integrated with the company data warehouse for automatic metric ingestion. Includes Slack notifications, experiment registry, and a reporting UI.",
+    "tools": ["Python", "R", "Bayesian Stats", "FastAPI", "React", "Snowflake", "dbt"],
+    "github": "https://github.com/hon-luu/ab-testing-framework",
+    "demo": null,
+    "featured": false
+  }
+]

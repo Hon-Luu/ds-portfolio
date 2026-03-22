@@ -1,0 +1,80 @@
+---
+---
+
+<section id="about" class="py-24 bg-gray-50 dark:bg-gray-900/50">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-5 gap-12 md:gap-16">
+      <div class="md:col-span-3">
+        <p class="text-sm font-mono text-accent dark:text-accent-dark tracking-widest uppercase mb-3">About</p>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+          Data science is a craft,<br />not a black box.
+        </h2>
+        <div class="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p>
+            I've spent 15 years turning messy, real-world data into decisions that move the needle.
+            My career started in analytics at a scrappy startup — writing SQL late into the night, learning
+            that a well-framed question beats a sophisticated model every time.
+          </p>
+          <p>
+            Today I lead data science teams and design ML systems end-to-end: from the first
+            exploratory notebook to a production API that engineers trust and business stakeholders
+            can act on. I've delivered across retail, SaaS, fintech, and media.
+          </p>
+          <p>
+            My philosophy: models are only as good as the decisions they inform.
+            That means caring about interpretability, uncertainty, and the feedback loop between
+            the model and the humans who rely on it. I like work that's ambitious but grounded —
+            high statistical rigour, zero unnecessary complexity.
+          </p>
+          <p>
+            When I'm not wrangling data, I write about machine learning for practitioners, mentor
+            early-career data scientists, and run on trails that are longer than they should be.
+          </p>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 space-y-8">
+        <!-- Values -->
+        <div>
+          <h3 class="text-xs font-mono tracking-widest uppercase text-gray-400 dark:text-gray-500 mb-4">Values</h3>
+          <ul class="space-y-3">
+            {[
+              { title: 'Decisions over deliverables', body: 'A model that changes a business decision beats a demo every time.' },
+              { title: 'Interpretability by default', body: "If stakeholders can't trust the output, the model has failed regardless of accuracy." },
+              { title: 'Engineering discipline', body: 'Data science that can\'t reach production is a prototype. I build for the long run.' },
+              { title: 'Clear communication', body: 'The best analysis is worthless if no one understands it. I translate both ways.' },
+            ].map(item => (
+              <li class="border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                <p class="text-sm font-medium text-gray-900 dark:text-gray-100">{item.title}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-500 mt-0.5">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Currently looking for -->
+        <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5">
+          <h3 class="text-xs font-mono tracking-widest uppercase text-gray-400 dark:text-gray-500 mb-3">Open to</h3>
+          <ul class="space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0"></span>
+              Staff / Principal IC roles
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0"></span>
+              DS / ML Engineering lead roles
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0"></span>
+              Freelance & consulting engagements
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 flex-shrink-0"></span>
+              Advisory / fractional CDO
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

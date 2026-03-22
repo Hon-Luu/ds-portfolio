@@ -1,0 +1,69 @@
+---
+import experience from '../content/experience.json';
+
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return 'Present';
+  const [year, month] = dateStr.split('-');
+  const date = new Date(Number(year), Number(month) - 1);
+  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+---
+
+<section id="experience" class="py-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-mono text-accent dark:text-accent-dark tracking-widest uppercase mb-3">History</p>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Experience</h2>
+      </div>
+      <a
+        href="/ds-portfolio/resume.pdf"
+        download
+        class="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors self-start sm:self-auto"
+      >
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Download Resume
+      </a>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-0 top-2 bottom-2 w-px bg-gray-200 dark:bg-gray-800 hidden sm:block" style="left: 7px;"></div>
+
+      <div class="space-y-10">
+        {experience.map((job) => (
+          <div class="sm:pl-10 relative">
+            <!-- Dot -->
+            <div class={`absolute left-0 top-2 w-3.5 h-3.5 rounded-full border-2 hidden sm:block ${job.current ? 'bg-accent dark:bg-accent-dark border-accent dark:border-accent-dark' : 'bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-700'}`}></div>
+
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-1 mb-3">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">{job.role}</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                  {job.company}
+                  <span class="text-gray-400 dark:text-gray-600 mx-1">·</span>
+                  {job.location}
+                </p>
+              </div>
+              <span class="text-xs font-mono text-gray-400 dark:text-gray-500 whitespace-nowrap mt-0.5">
+                {formatDate(job.start)} — {formatDate(job.current ? null : job.end)}
+              </span>
+            </div>
+
+            <ul class="space-y-1.5">
+              {job.bullets.map(bullet => (
+                <li class="flex gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <span class="text-gray-300 dark:text-gray-700 mt-1 flex-shrink-0">—</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

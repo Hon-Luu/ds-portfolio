@@ -1,0 +1,22 @@
+{
+  "languages": {
+    "label": "Languages",
+    "items": ["Python", "SQL", "R", "Bash", "JavaScript"]
+  },
+  "ml": {
+    "label": "ML & Statistics",
+    "items": ["Scikit-learn", "XGBoost", "LightGBM", "PyTorch", "HuggingFace", "Statsmodels", "Prophet", "SHAP"]
+  },
+  "data": {
+    "label": "Data & Analytics",
+    "items": ["Pandas", "NumPy", "Polars", "Spark", "dbt", "Airflow", "BigQuery", "Snowflake", "PostgreSQL"]
+  },
+  "mlops": {
+    "label": "MLOps & Infrastructure",
+    "items": ["MLflow", "Docker", "AWS (S3/EC2/SageMaker)", "Git", "FastAPI", "CI/CD"]
+  },
+  "viz": {
+    "label": "Visualization",
+    "items": ["Plotly", "Matplotlib", "Seaborn", "Streamlit", "Tableau"]
+  }
+}
