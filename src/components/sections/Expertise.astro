@@ -1,0 +1,114 @@
+---
+const areas = [
+  {
+    name: 'Strategic Leadership',
+    items: [
+      'Data & analytics strategy (APAC scope)',
+      'Analytics transformation programmes',
+      'Cross-border engineering team management (India)',
+      'Senior management engagement (SE Asia)',
+      'Data governance & data literacy',
+      'Distributed team & vendor management',
+      'Data modernisation roadmaps',
+    ],
+  },
+  {
+    name: 'Insurance & Financial Services',
+    items: [
+      'Insurance distribution analytics',
+      'Agency & channel performance',
+      'Persistency & retention analytics',
+      'Fraud detection analytics',
+      'Pricing strategy & loss analytics',
+      'Regulatory reporting',
+    ],
+  },
+  {
+    name: 'Analytics & Data Science',
+    items: [
+      'Predictive modelling & machine learning',
+      'Customer segmentation',
+      'Financial forecasting',
+      'Operational intelligence & KPI monitoring',
+      'Self-serve analytics & BI platforms',
+      'Analytics automation',
+    ],
+  },
+  {
+    name: 'Technical',
+    items: [
+      'Python · SQL · R',
+      'Tableau · Power BI',
+      'Machine learning (scikit-learn, XGBoost)',
+      'Cloud platforms (AWS, GCP)',
+      'Data pipelines & ETL',
+    ],
+  },
+];
+---
+
+<section id="expertise" class="py-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-stone-900 mb-2" data-reveal="up">Expertise</h2>
+    <div class="w-8 h-0.5 bg-teal-700 mb-3" data-reveal="line"></div>
+    <p class="text-stone-500 mb-12 max-w-xl" data-reveal="up" data-delay="1">
+      Across strategy, domain, analytics delivery, and technical execution.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-14">
+      {
+        areas.map((area, i) => (
+          <div data-reveal="up" data-delay={String(i + 1)}>
+            <h3 class="text-xs font-mono uppercase tracking-widest text-teal-700 mb-4">
+              {area.name}
+            </h3>
+            <ul class="space-y-2.5">
+              {area.items.map((item) => (
+                <li class="flex gap-2 text-sm text-stone-700">
+                  <span class="text-stone-300 shrink-0 mt-0.5 select-none">—</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Lines of Business -->
+    <div data-reveal="up" data-delay="2">
+      <h3 class="text-xs font-mono uppercase tracking-widest text-teal-700 mb-6">
+        Insurance Lines of Business
+      </h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          {
+            name: 'Personal Auto',
+            description: 'Pricing, loss analytics, retention modelling, and underwriting optimisation for personal lines.',
+          },
+          {
+            name: 'Commercial Auto',
+            description: 'Portfolio analytics, risk segmentation, and profitability analysis for commercial fleets and vehicles.',
+          },
+          {
+            name: 'Homeowners',
+            description: 'Pricing strategy, loss ratio management, and customer segmentation for property lines.',
+          },
+          {
+            name: 'Life Insurance',
+            description: 'Persistency analytics, distribution performance, agency analytics, and new business forecasting.',
+          },
+        ].map((lob, i) => (
+          <div
+            class="bg-stone-50 border border-stone-200 rounded-xl p-5 hover:border-teal-200 hover:shadow-sm transition-all"
+            data-reveal="up"
+            data-delay={String(i + 1)}
+          >
+            <p class="font-semibold text-stone-900 mb-2">{lob.name}</p>
+            <p class="text-xs text-stone-500 leading-relaxed">{lob.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

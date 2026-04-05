@@ -1,0 +1,58 @@
+---
+// TODO: Replace placeholders with your real certifications
+const certs = [
+  {
+    title: 'Certification Name',
+    issuer: 'Issuing Organization',
+    year: '2025',
+    inProgress: false,
+  },
+  {
+    title: 'Certification Name',
+    issuer: 'Issuing Organization',
+    year: '2025',
+    inProgress: true,
+  },
+  {
+    title: 'Certification Name',
+    issuer: 'Issuing Organization',
+    year: '2024',
+    inProgress: false,
+  },
+];
+---
+
+<section id="certifications" class="py-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-stone-900 mb-2" data-reveal="up">
+      Continuing Education
+    </h2>
+    <div class="w-8 h-0.5 bg-teal-700 mb-3" data-reveal="line"></div>
+    <p class="text-stone-500 mb-12 max-w-xl" data-reveal="up" data-delay="1">
+      Online certifications, professional development, and ongoing learning.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {
+        certs.map((cert, i) => (
+          <div
+            class="bg-white border border-stone-200 rounded-xl p-5 flex flex-col gap-1 hover:border-teal-200 hover:shadow-sm transition-all"
+            data-reveal="up"
+            data-delay={String(i + 1)}
+          >
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <p class="font-medium text-stone-900 text-sm leading-snug">{cert.title}</p>
+              {cert.inProgress && (
+                <span class="shrink-0 text-xs font-mono bg-teal-50 text-teal-700 border border-teal-200 px-1.5 py-0.5 rounded">
+                  In progress
+                </span>
+              )}
+            </div>
+            <p class="text-xs text-stone-500">{cert.issuer}</p>
+            <p class="text-xs font-mono text-stone-400 mt-1">{cert.year}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

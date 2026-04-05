@@ -1,0 +1,463 @@
+---
+const stats = [
+  {
+    prefix: '', value: 15, suffix: '+', label: 'years in analytics',
+    detail: ['Over 15 years of impact across insurance, technology, and start-up companies — driving data strategy, analytics transformation, and measurable business outcomes across two continents.'],
+  },
+  {
+    prefix: '', value: 7, suffix: '+', label: 'markets · 2 continents',
+    detail: ['🇭🇰 Hong Kong', '🇮🇩 Indonesia', '🇻🇳 Vietnam', '🇹🇭 Thailand', '🇳🇿 New Zealand', '🇹🇼 Taiwan', '🇺🇸 United States', 'Deep expertise in each market with the ability to navigate the regulatory, cultural, and business nuances unique to each country.'],
+  },
+  {
+    prefix: '', value: 125, suffix: '+', label: 'stakeholders enabled',
+    detail: ['Onboarded 125+ team members and stakeholders to an enterprise-grade global data platform, and enabled Data Science and AI upskilling across analytics, operations, and distribution teams.'],
+  },
+  {
+    prefix: '', value: 100, suffix: '+', label: 'policy admin systems migrated',
+    detail: ['Partnered with engineering and business teams to migrate 100+ policy admin systems and 1,000+ tables to the cloud platform as part of a data modernization initiative.'],
+  },
+  {
+    prefix: '$', value: 20, suffix: 'M+', label: 'USD added to top line',
+    detail: ['Added $20M+ USD to the top line through pricing analytics, customer segmentation, and smarter portfolio actions across the US and APAC markets.'],
+  },
+  {
+    prefix: '', value: 6, suffix: '', label: 'industry domains',
+    detail: ['Deep domain expertise spanning Personal Auto, Commercial Auto, Homeowners, and Life Insurance — as well as start-up technology companies and consulting engagements across US and Asia Pacific.'],
+  },
+];
+---
+
+<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+  <!-- Subtle background texture -->
+  <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
+    <div
+      id="blob-1"
+      class="absolute top-1/4 right-0 w-[600px] h-[600px] translate-x-1/3 -translate-y-1/4 rounded-full bg-stone-100 blur-3xl opacity-80"
+    ></div>
+    <div
+      id="blob-2"
+      class="absolute bottom-1/4 -left-20 w-[400px] h-[400px] rounded-full bg-stone-100 blur-3xl opacity-60"
+    ></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 py-24 w-full">
+    <p
+      class="hero-item text-xs font-mono text-teal-600 mb-6 tracking-widest uppercase"
+      style="animation-delay: 0.05s"
+    >
+      Open to Director & Head of Analytics opportunities
+    </p>
+    <h1
+      class="hero-item text-5xl md:text-7xl font-bold text-stone-900 leading-tight mb-4 tracking-tight"
+      style="animation-delay: 0.15s"
+    >
+      Hon Luu
+    </h1>
+    <h2
+      class="hero-item text-2xl md:text-3xl font-light text-stone-500 mb-7"
+      style="animation-delay: 0.28s"
+    >
+      Data & Analytics Leader
+    </h2>
+    <p
+      class="hero-item text-lg text-stone-600 max-w-2xl leading-relaxed mb-10"
+      style="animation-delay: 0.42s"
+    >
+      Director-level analytics leader with a track record spanning the United States and
+      7 markets across Asia Pacific. I define data strategy, lead analytics transformation
+      programs, and build the teams and platforms that turn data into measurable business outcomes.
+    </p>
+
+    <div class="hero-item flex flex-wrap gap-4 mb-16" style="animation-delay: 0.56s">
+      <a
+        href="#impact"
+        class="px-6 py-3 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg transition-colors"
+      >
+        View My Work
+      </a>
+      <a
+        href="/resume.pdf"
+        download
+        class="px-6 py-3 border border-stone-300 text-stone-700 hover:border-teal-600 hover:text-teal-700 font-medium rounded-lg transition-colors"
+      >
+        Download CV
+      </a>
+    </div>
+
+    <!-- Stats row -->
+    <div
+      id="stats-section"
+      class="hero-item border-t border-stone-200 pt-8 relative"
+      style="animation-delay: 0.7s"
+    >
+      <!-- Mobile hint -->
+      <p class="text-xs text-stone-400 mb-4 md:hidden">Tap a card to learn more.</p>
+
+      <div class="stats-shell">
+        <div class="stats-grid">
+          {
+            stats.map((s, i) => (
+              <button
+                type="button"
+                class="stat-card"
+                data-index={String(i)}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+                style="min-height: 120px; min-width: 0;"
+              >
+                <div class="stat-inner">
+                  <p
+                    class="stat-counter stat-value text-stone-900 tabular-nums"
+                    data-target={s.value}
+                    data-prefix={s.prefix}
+                    data-suffix={s.suffix}
+                  >
+                    {s.prefix}0{s.suffix}
+                  </p>
+                  <p class="stat-label text-stone-400 uppercase tracking-wider">{s.label}</p>
+                  <div class="stat-bar" aria-hidden="true"></div>
+                </div>
+              </button>
+            ))
+          }
+        </div>
+
+        <aside id="stats-preview" class="stats-preview" aria-live="polite">
+          <div class="stats-preview-inner">
+            <p id="stats-preview-kicker" class="stats-preview-kicker"></p>
+            <p id="stats-preview-number" class="stats-preview-number"></p>
+            <ul id="stats-preview-detail" class="stats-preview-detail"></ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 text-stone-300 animate-bounce"
+    aria-hidden="true"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</section>
+
+<style>
+  /* ── Stats interaction ── */
+  .stats-shell {
+    display: grid;
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .stat-inner {
+    position: relative;
+    min-height: 120px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    background: #fafaf9;
+    border: 1px solid #e7e5e4;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem 1rem 1rem;
+    overflow: visible;
+    transition:
+      border-color 0.28s ease,
+      box-shadow 0.28s ease,
+      background-color 0.28s ease,
+      transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stat-card:is(:hover, :focus-visible, [aria-pressed="true"]) .stat-inner {
+    border-color: #99f6e4;
+    background: #ffffff;
+    box-shadow: 0 16px 36px -28px rgb(15 118 110 / 0.42);
+    transform: translateY(-2px);
+  }
+
+  .stat-value {
+    margin: 0 1rem 0 0;
+    font-size: clamp(1.6rem, 2.4vw, 2rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+
+  .stat-label {
+    margin: 0;
+    max-width: calc(100% - 1rem);
+    padding-right: 0.35rem;
+    font-size: 0.68rem;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .stat-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    background: #0f766e;
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  /* ── Preview panel ── */
+  .stats-preview {
+    position: relative;
+    min-height: 12rem;
+    border: 1px solid #d6d3d1;
+    border-radius: 1rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,249,0.98));
+    box-shadow: 0 20px 45px -35px rgb(0 0 0 / 0.25);
+    overflow: hidden;
+  }
+
+  .stats-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: linear-gradient(180deg, #14b8a6, #0f766e);
+  }
+
+  .stats-preview-inner {
+    padding: 1.5rem 1.75rem 1.5rem 1.75rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.3s ease,
+      transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stats-preview.is-changing .stats-preview-inner {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .stats-preview-kicker {
+    margin-bottom: 0.75rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #0f766e;
+  }
+
+  .stats-preview-number {
+    margin-bottom: 0.85rem;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #1c1917;
+  }
+
+  .stats-preview-detail {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #44403c;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .stats-preview-detail li {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .stats-preview-detail li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 999px;
+    background: #14b8a6;
+  }
+
+  /* On mobile: full-width stack */
+  @media (max-width: 767px) {
+    .stats-shell {
+      grid-template-columns: 1fr;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .stats-preview {
+      min-height: auto;
+    }
+  }
+
+  /* On desktop: cards left, panel right */
+  @media (min-width: 768px) {
+    .stats-shell {
+      grid-template-columns: minmax(0, 1.4fr) minmax(17rem, 1fr);
+      align-items: stretch;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stat-inner,
+    .stats-preview-inner {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // ── Blob parallax ──
+  const blob1 = document.getElementById('blob-1');
+  const blob2 = document.getElementById('blob-2');
+
+  if (blob1 && blob2 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          blob1.style.transform = `translate(33%, calc(-25% + ${y * 0.18}px))`;
+          blob2.style.transform = `translate(-5%, ${y * -0.12}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ── Stat counters ──
+  function animateCounter(el: HTMLElement) {
+    const target = parseInt(el.dataset.target ?? '0', 10);
+    const prefix = el.dataset.prefix ?? '';
+    const suffix = el.dataset.suffix ?? '';
+    const duration = 1400;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = prefix + Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            animateCounter(e.target as HTMLElement);
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    document.querySelectorAll('.stat-counter').forEach((el) => obs.observe(el));
+  } else {
+    document.querySelectorAll<HTMLElement>('.stat-counter').forEach((el) => {
+      el.textContent = (el.dataset.prefix ?? '') + el.dataset.target + (el.dataset.suffix ?? '');
+    });
+  }
+
+  // ── Stat preview panel ──
+  const statsData = [
+    {
+      prefix: '', value: 15, suffix: '+', label: 'years in analytics',
+      detail: ['Over 15 years of impact across insurance, technology, and start-up companies — driving data strategy, analytics transformation, and measurable business outcomes across two continents.'],
+    },
+    {
+      prefix: '', value: 7, suffix: '+', label: 'markets · 2 continents',
+      detail: ['🇭🇰 Hong Kong', '🇮🇩 Indonesia', '🇻🇳 Vietnam', '🇹🇭 Thailand', '🇳🇿 New Zealand', '🇹🇼 Taiwan', '🇺🇸 United States', 'Deep expertise in each market with the ability to navigate the regulatory, cultural, and business nuances unique to each country.'],
+    },
+    {
+      prefix: '', value: 125, suffix: '+', label: 'stakeholders enabled',
+      detail: ['Onboarded 125+ team members and stakeholders to an enterprise-grade global data platform, and enabled Data Science and AI upskilling across analytics, operations, and distribution teams.'],
+    },
+    {
+      prefix: '', value: 100, suffix: '+', label: 'policy admin systems migrated',
+      detail: ['Partnered with engineering and business teams to migrate 100+ policy admin systems and 1,000+ tables to the cloud platform as part of a data modernization initiative.'],
+    },
+    {
+      prefix: '$', value: 20, suffix: 'M+', label: 'USD added to top line',
+      detail: ['Added $20M+ USD to the top line through pricing analytics, customer segmentation, and smarter portfolio actions across the US and APAC markets.'],
+    },
+    {
+      prefix: '', value: 6, suffix: '', label: 'industry domains',
+      detail: ['Deep domain expertise spanning Personal Auto, Commercial Auto, Homeowners, and Life Insurance — as well as start-up technology companies and consulting engagements across US and Asia Pacific.'],
+    },
+  ];
+
+  const preview = document.getElementById('stats-preview');
+  const previewKicker = document.getElementById('stats-preview-kicker');
+  const previewNumber = document.getElementById('stats-preview-number');
+  const previewDetail = document.getElementById('stats-preview-detail');
+  const statCards = Array.from(document.querySelectorAll<HTMLElement>('.stat-card'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let swapTimer: ReturnType<typeof setTimeout> | null = null;
+
+  function renderStatPreview(index: number) {
+    const stat = statsData[index];
+    if (!stat || !preview || !previewKicker || !previewNumber || !previewDetail) return;
+
+    if (swapTimer) clearTimeout(swapTimer);
+    preview.classList.add('is-changing');
+
+    swapTimer = setTimeout(() => {
+      previewKicker.textContent = stat.label;
+      previewNumber.textContent = `${stat.prefix}${stat.value}${stat.suffix}`;
+      previewDetail.innerHTML = stat.detail.map((item) => `<li>${item}</li>`).join('');
+      preview.classList.remove('is-changing');
+    }, reduceMotion ? 0 : 180);
+  }
+
+  function setActiveStat(index: number) {
+    statCards.forEach((card, i) => {
+      card.setAttribute('aria-pressed', String(i === index));
+    });
+    renderStatPreview(index);
+  }
+
+  // Desktop: hover activates; Mobile: tap toggles
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+  statCards.forEach((card, index) => {
+    if (!isTouchDevice) {
+      card.addEventListener('mouseenter', () => setActiveStat(index));
+    }
+    card.addEventListener('click', () => setActiveStat(index));
+    card.addEventListener('focus', () => setActiveStat(index));
+  });
+
+  // Show first card on load
+  setActiveStat(0);
+</script>

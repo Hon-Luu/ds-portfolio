@@ -1,0 +1,145 @@
+---
+const projects = [
+  {
+    title: 'Insurance Fraud Detection Analytics',
+    description:
+      'Implemented end-to-end fraud detection analytics at Chubb Life using machine learning and predictive modeling. Identified 1,000+ potential fraud cases across APAC markets and reduced investigative effort by 25% through automated scoring and prioritization.',
+    tags: ['Python', 'Machine Learning', 'Predictive Modeling', 'SQL', 'Insurance Analytics'],
+    github: null,
+    demo: null,
+    caseStudy: null,
+    featured: true,
+  },
+  {
+    title: 'APAC Agency Performance Platform',
+    description:
+      'Built agency performance dashboards and distribution hierarchy analytics for Chubb Life across 8 APAC markets. Reduced manual reporting effort by >70% and improved sales productivity visibility for field leadership.',
+    tags: ['BI', 'Data Products', 'Distribution Analytics', 'SQL', 'Executive Reporting'],
+    github: null,
+    demo: null,
+    caseStudy: null,
+    featured: false,
+  },
+  {
+    title: 'Financial Forecasting Framework',
+    description:
+      'Designed a financial forecasting framework for new business and persistency analytics at Chubb Life. Achieved forecast accuracy within 5% variance — enabling reliable budget planning and distribution strategy decisions.',
+    tags: ['Python', 'Financial Forecasting', 'Persistency Analytics', 'Statistical Modeling'],
+    github: null,
+    demo: null,
+    caseStudy: null,
+    featured: false,
+  },
+  {
+    title: 'Pricing & Retention Models',
+    description:
+      'Built predictive modeling solutions for pricing strategy and retention optimization at Liberty Mutual Insurance. Improved portfolio profitability by 3% and delivered $100K+ incremental premium through optimized underwriting and campaign targeting.',
+    tags: ['Python', 'Predictive Modeling', 'Insurance Analytics', 'ML', 'A/B Testing'],
+    github: null,
+    demo: null,
+    caseStudy: null,
+    featured: false,
+  },
+];
+
+const featured = projects.find((p) => p.featured)!;
+const rest = projects.filter((p) => !p.featured);
+---
+
+<section id="projects" class="py-24 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2
+      class="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-2"
+      data-reveal="up"
+    >
+      Projects
+    </h2>
+    <div class="w-8 h-0.5 bg-blue-600 dark:bg-blue-400 mb-3" data-reveal="line"></div>
+    <p class="text-gray-500 dark:text-gray-400 mb-12 max-w-xl" data-reveal="up" data-delay="1">
+      A selection of analytics and ML work across insurance, financial services, and adtech.
+      Full case studies available on request.
+    </p>
+
+    <!-- Featured project -->
+    <article
+      class="tilt-card mb-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-8 flex flex-col md:flex-row gap-8 hover:shadow-xl dark:hover:shadow-gray-900/60 hover:border-blue-100 dark:hover:border-blue-900 transition-shadow duration-200"
+      data-reveal="up"
+      data-delay="2"
+    >
+      <div class="flex-1 flex flex-col gap-4">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-50">{featured.title}</h3>
+          <span
+            class="shrink-0 text-xs font-mono bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800 px-2 py-0.5 rounded"
+          >
+            Featured
+          </span>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">{featured.description}</p>
+        <div class="flex gap-4 text-sm mt-auto pt-2">
+          {featured.github && <a href={featured.github} class="text-blue-600 dark:text-blue-400 hover:underline font-medium">GitHub →</a>}
+          {featured.demo && <a href={featured.demo} class="text-blue-600 dark:text-blue-400 hover:underline font-medium">Live Demo →</a>}
+          {featured.caseStudy && <a href={featured.caseStudy} class="text-blue-600 dark:text-blue-400 hover:underline font-medium">Case Study →</a>}
+          {!featured.github && !featured.demo && !featured.caseStudy && (
+            <span class="text-xs text-gray-400 dark:text-gray-500 italic">Details available on request</span>
+          )}
+        </div>
+      </div>
+      <div class="md:w-48 shrink-0">
+        <p class="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3">Stack</p>
+        <div class="flex flex-wrap md:flex-col gap-2">
+          {featured.tags.map((tag) => (
+            <span class="text-xs font-mono bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded border border-gray-200 dark:border-gray-600">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+
+    <!-- Rest of projects -->
+    <div class="grid md:grid-cols-3 gap-5">
+      {rest.map((p, i) => (
+        <article
+          class="tilt-card bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 flex flex-col gap-4 hover:shadow-lg dark:hover:shadow-gray-900/60 hover:border-blue-100 dark:hover:border-blue-900 transition-shadow duration-200"
+          data-reveal="up"
+          data-delay={String(i + 3)}
+        >
+          <h3 class="font-semibold text-gray-900 dark:text-gray-50">{p.title}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed flex-1">{p.description}</p>
+          <div class="flex flex-wrap gap-2">
+            {p.tags.map((tag) => (
+              <span class="text-xs font-mono bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="flex gap-4 text-sm">
+            {p.github && <a href={p.github} class="text-blue-600 dark:text-blue-400 hover:underline font-medium">GitHub →</a>}
+            {p.demo && <a href={p.demo} class="text-blue-600 dark:text-blue-400 hover:underline font-medium">Live Demo →</a>}
+            {p.caseStudy && <a href={p.caseStudy} class="text-blue-600 dark:text-blue-400 hover:underline font-medium">Case Study →</a>}
+            {!p.github && !p.demo && !p.caseStudy && (
+              <span class="text-xs text-gray-400 dark:text-gray-500 italic">Details on request</span>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll<HTMLElement>('.tilt-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const dx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+        const dy = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+        card.style.transform = `perspective(900px) rotateX(${-dy * 6}deg) rotateY(${dx * 6}deg) scale(1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+</script>

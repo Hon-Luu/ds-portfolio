@@ -1,0 +1,60 @@
+---
+import Nav from '@/components/Nav.astro';
+import '@/styles/animations.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Hon Luu | Data & Analytics Leader',
+  description = 'Director-level Data & Analytics leader in insurance and financial services with APAC scope. Expert in data strategy, analytics transformation, and operational intelligence.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body class="bg-white text-stone-900 font-sans antialiased">
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <footer class="border-t border-stone-200 py-8 mt-24">
+      <div class="max-w-5xl mx-auto px-6 text-center text-sm text-stone-400">
+        <p>© {new Date().getFullYear()} Hon Luu</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+  );
+  document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
+</script>

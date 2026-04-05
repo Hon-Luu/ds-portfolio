@@ -1,0 +1,107 @@
+---
+const jobs = [
+  {
+    title: 'Regional Data Analytics Lead',
+    company: 'Chubb Life',
+    location: 'Hong Kong',
+    period: 'Jul 2024 – Present',
+    bullets: [
+      'Defined APAC data strategy for insurance distribution and operations leadership across Hong Kong, Indonesia, Vietnam, Thailand, New Zealand, and Taiwan.',
+      'Directly manages a cross-border engineering team in India — sets priorities, explains business rationale, defines technical approach, and holds delivery timelines across all APAC analytics programmes.',
+      'Engages senior management across Southeast Asia to set analytics direction, secure alignment on priorities, and translate regional business strategy into executable data programmes.',
+      'Drove analytics transformation and enterprise reporting across agency distribution, reducing manual effort by >70%.',
+      'Built agency performance dashboards and distribution hierarchy analytics, improving sales productivity visibility and field interventions.',
+      'Directed the development of ML-powered fraud detection analytics, identifying 1,000+ potential cases and reducing investigative effort by 25%.',
+      'Designed financial forecasting framework achieving forecast accuracy within 5% variance.',
+      'Championed data governance and data literacy across 50+ stakeholders, boosting self-serve analytics usage by 100%.',
+    ],
+  },
+  {
+    title: 'Product Lead',
+    company: 'AlikeAudience',
+    location: 'Hong Kong',
+    period: 'Jun 2023 – Jul 2024',
+    bullets: [
+      'Led 3-year analytics and product strategy for data products supporting APAC expansion, increasing enterprise adoption by 20%.',
+      'Partnered with engineering and data science teams to deliver analytics automation, reducing manual workflows by 30%.',
+      'Mentored analysts and product managers, improving delivery throughput by 25%.',
+    ],
+  },
+  {
+    title: 'Data Scientist',
+    company: 'Liberty Mutual Insurance',
+    location: 'United States',
+    period: 'Aug 2017 – Oct 2021',
+    bullets: [
+      'Built predictive modelling solutions for pricing strategy and retention optimisation, improving portfolio profitability by 3%.',
+      'Delivered analytics initiatives generating $100K+ incremental premium through optimised underwriting and targeting.',
+      'Integrated machine learning insights into marketing and pricing strategy, improving campaign response rates by 18%.',
+    ],
+  },
+  {
+    title: 'Senior Analyst',
+    company: 'Kemper Insurance',
+    location: 'United States',
+    period: 'Nov 2015 – Aug 2017',
+    bullets: [
+      'Managed analytics supporting a $6M insurance portfolio, improving loss ratio management and pricing decisions by 4%.',
+      'Conducted pricing, loss, and competitor analysis to support regulatory filings, reducing approval cycle time by 20%.',
+    ],
+  },
+  {
+    title: 'Analyst',
+    company: 'Hallmark Financial Services',
+    location: 'United States',
+    period: 'Feb 2015 – Nov 2015',
+    bullets: [
+      'Built SQL and Excel reporting frameworks for executive reporting, reducing monthly reporting time by 50%.',
+      'Presented portfolio insights to executive leadership including CEO, informing pricing and distribution decisions.',
+    ],
+  },
+];
+---
+
+<section id="experience" class="py-24 bg-stone-50">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="flex flex-wrap items-baseline justify-between gap-4 mb-2">
+      <h2 class="text-3xl font-bold text-stone-900" data-reveal="up">Experience</h2>
+      <a
+        href="/resume.pdf"
+        download
+        class="text-sm font-medium text-teal-700 hover:text-teal-900 hover:underline transition-colors"
+        data-reveal="fade"
+      >
+        Download full CV (PDF) →
+      </a>
+    </div>
+    <div class="w-8 h-0.5 bg-teal-700 mb-3" data-reveal="line"></div>
+    <p class="text-stone-500 mb-12 max-w-xl" data-reveal="up" data-delay="1">
+      10+ years across insurance, financial services, and adtech — US and APAC.
+    </p>
+
+    <ol class="relative border-l border-stone-200 ml-3 space-y-10">
+      {
+        jobs.map((job, i) => (
+          <li class="pl-8 relative" data-reveal="left" data-delay={String(i + 1)}>
+            <span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-teal-600 bg-white" />
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
+              <h3 class="font-semibold text-stone-900">{job.title}</h3>
+              <span class="text-stone-300">·</span>
+              <span class="text-stone-600">{job.company}</span>
+              <span class="text-xs text-stone-400">{job.location}</span>
+              <span class="text-xs font-mono text-stone-400 ml-auto">{job.period}</span>
+            </div>
+            <ul class="space-y-2">
+              {job.bullets.map((b) => (
+                <li class="flex gap-2.5 text-sm text-stone-600">
+                  <span class="text-stone-300 shrink-0 select-none mt-px">—</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

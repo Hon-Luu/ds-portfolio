@@ -1,0 +1,137 @@
+---
+const initiatives = [
+  {
+    company: 'Chubb Life Insurance',
+    period: '2024 – Present',
+    title: 'Analytics Transformation & Data Strategy, APAC',
+    description:
+      'Defined and drove the APAC data strategy across 8 markets. Led a cross-border engineering team in India and engaged senior management across Southeast Asia to align analytics capability with regional distribution and operations priorities. Delivered enterprise-wide transformation — from governance and data literacy to agency performance platforms and ML-powered fraud detection.',
+    metrics: [
+      { value: '>70%', label: 'reduction in manual effort' },
+      { value: '8', label: 'APAC markets in scope' },
+      { value: '100%', label: 'increase in self-serve adoption' },
+    ],
+    leadership: 'Provided strategic direction to senior management and Heads of Data across Southeast Asia, defining analytics roadmaps and advising on development priorities across operations and distribution.',
+    type: 'leadership',
+  },
+  {
+    company: 'Chubb Life Insurance',
+    period: '2024 – Present',
+    title: 'Fraud Detection Analytics Programme',
+    description:
+      'Established an ML-powered fraud detection capability from the ground up. Directed the India engineering team to deliver automated scoring and prioritisation models that surfaced 1,000+ potential cases and significantly freed investigative capacity across APAC markets.',
+    metrics: [
+      { value: '1,000+', label: 'fraud cases identified' },
+      { value: '25%', label: 'reduction in investigative effort' },
+    ],
+    leadership: 'Engineering team (India) · Insurance operations across APAC markets',
+    type: 'leadership',
+  },
+  {
+    company: 'Chubb Life Insurance',
+    period: '2024 – Present',
+    title: 'Financial Forecasting Framework',
+    description:
+      'Designed and delivered a financial forecasting framework for new business and persistency analytics. Presented outcomes directly to senior management in Southeast Asia, enabling reliable budget planning and distribution strategy decisions previously reliant on ad-hoc estimates.',
+    metrics: [
+      { value: '<5%', label: 'forecast variance achieved' },
+    ],
+    leadership: 'SE Asia finance & distribution leadership · Thailand · Vietnam · Indonesia · Taiwan',
+    type: 'leadership',
+  },
+  {
+    company: 'Liberty Mutual Insurance',
+    period: '2017 – 2021',
+    title: 'Pricing & Retention Analytics',
+    description:
+      'Built and embedded predictive modelling solutions for pricing strategy and retention optimisation. Delivered measurable portfolio profitability improvement and incremental premium growth through smarter underwriting and campaign targeting.',
+    metrics: [
+      { value: '3%', label: 'portfolio profitability improvement' },
+      { value: '$100K+', label: 'incremental premium delivered' },
+      { value: '18%', label: 'campaign response rate uplift' },
+    ],
+    leadership: 'US insurance market · Pricing strategy · Retention optimisation',
+    type: 'delivery',
+  },
+];
+---
+
+<section id="impact" class="py-24 bg-stone-50">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-stone-900 mb-2" data-reveal="up">Impact</h2>
+    <div class="w-8 h-0.5 bg-teal-700 mb-3" data-reveal="line"></div>
+    <p class="text-stone-500 mb-12 max-w-xl" data-reveal="up" data-delay="1">
+      Selected leadership initiatives across analytics transformation, strategy, and delivery
+      in insurance and financial services.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        initiatives.map((item, i) => (
+          <article
+            class="tilt-card bg-white border border-stone-200 rounded-xl p-7 flex flex-col gap-5 hover:shadow-lg hover:border-stone-300 transition-all duration-200"
+            data-reveal="up"
+            data-delay={String(i + 2)}
+          >
+            <!-- Company + period + leadership tag -->
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wider">
+                  {item.company}
+                </span>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                {item.type === 'leadership' && (
+                  <span class="text-xs font-medium bg-teal-700 text-white px-2 py-0.5 rounded">
+                    Leadership
+                  </span>
+                )}
+                <span class="text-xs font-mono text-stone-400">{item.period}</span>
+              </div>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-semibold text-lg text-stone-900 leading-snug">{item.title}</h3>
+
+            <!-- Description -->
+            <p class="text-sm text-stone-600 leading-relaxed flex-1">{item.description}</p>
+
+            <!-- Outcome metrics -->
+            <div class="flex flex-wrap gap-x-6 gap-y-3 pt-4 border-t border-stone-100">
+              {item.metrics.map((m) => (
+                <div>
+                  <p class="text-xl font-bold text-stone-900 tabular-nums">{m.value}</p>
+                  <p class="text-xs text-stone-400 mt-0.5">{m.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <!-- Leadership scope -->
+            <div class="flex items-start gap-2">
+              <svg class="w-3.5 h-3.5 text-stone-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <p class="text-xs text-stone-400">{item.leadership}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll<HTMLElement>('.tilt-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const dx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+        const dy = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+        card.style.transform = `perspective(900px) rotateX(${-dy * 5}deg) rotateY(${dx * 5}deg) scale(1.015)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+</script>
