@@ -1,38 +1,53 @@
 ---
-// TODO: Replace placeholders with your real certifications
 const certs = [
   {
-    title: 'Certification Name',
-    issuer: 'Issuing Organization',
-    year: '2025',
-    inProgress: false,
+    title: 'Claude Code in Action',
+    issuer: 'Anthropic',
+    issued: 'Mar 2026',
   },
   {
-    title: 'Certification Name',
-    issuer: 'Issuing Organization',
-    year: '2025',
-    inProgress: true,
+    title: 'LangChain for LLM Application Development',
+    issuer: 'DeepLearning.AI',
+    issued: 'Sep 2025',
   },
   {
-    title: 'Certification Name',
-    issuer: 'Issuing Organization',
-    year: '2024',
-    inProgress: false,
+    title: 'Introduction to Large Language Models',
+    issuer: 'Google Cloud',
+    issued: 'Sep 2025',
+  },
+  {
+    title: 'Introduction to Generative AI',
+    issuer: 'Google Cloud',
+    issued: 'Sep 2025',
   },
 ];
 ---
 
-<section id="certifications" class="py-14">
+<section id="certifications" class="py-14 bg-stone-50">
   <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-stone-900 mb-2" data-reveal="up">
-      Continuing Education
-    </h2>
-    <div class="w-8 h-0.5 bg-teal-700 mb-3" data-reveal="line"></div>
-    <p class="text-stone-500 mb-12 max-w-xl" data-reveal="up" data-delay="1">
-      Online certifications, professional development, and ongoing learning.
-    </p>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Education -->
+    <h2 class="text-3xl font-bold text-stone-900 mb-2" data-reveal="up">Education</h2>
+    <div class="w-8 h-0.5 bg-teal-700 mb-8" data-reveal="line"></div>
+
+    <div class="grid sm:grid-cols-2 gap-4 mb-14" data-reveal="up" data-delay="1">
+      <div class="bg-white border border-stone-200 rounded-xl p-6">
+        <p class="text-xs font-mono uppercase tracking-widest text-teal-700 mb-1">Master of Science</p>
+        <p class="font-semibold text-stone-900">Data Science</p>
+        <p class="text-sm text-stone-500 mt-0.5">Northwestern University</p>
+      </div>
+      <div class="bg-white border border-stone-200 rounded-xl p-6">
+        <p class="text-xs font-mono uppercase tracking-widest text-teal-700 mb-1">Bachelor of Arts</p>
+        <p class="font-semibold text-stone-900">Mathematics</p>
+        <p class="text-sm text-stone-500 mt-0.5">University of Oklahoma</p>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <h3 class="text-lg font-semibold text-stone-900 mb-2" data-reveal="up">Certifications</h3>
+    <div class="w-5 h-0.5 bg-teal-700 mb-6" data-reveal="line"></div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {
         certs.map((cert, i) => (
           <div
@@ -40,19 +55,13 @@ const certs = [
             data-reveal="up"
             data-delay={String(i + 1)}
           >
-            <div class="flex items-start justify-between gap-2 mb-1">
-              <p class="font-medium text-stone-900 text-sm leading-snug">{cert.title}</p>
-              {cert.inProgress && (
-                <span class="shrink-0 text-xs font-mono bg-teal-50 text-teal-700 border border-teal-200 px-1.5 py-0.5 rounded">
-                  In progress
-                </span>
-              )}
-            </div>
+            <p class="font-medium text-stone-900 text-sm leading-snug">{cert.title}</p>
             <p class="text-xs text-stone-500">{cert.issuer}</p>
-            <p class="text-xs font-mono text-stone-400 mt-1">{cert.year}</p>
+            <p class="text-xs font-mono text-stone-400 mt-1">{cert.issued}</p>
           </div>
         ))
       }
     </div>
+
   </div>
 </section>
